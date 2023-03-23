@@ -48,6 +48,13 @@ def add():
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
+    
+
+@app.route("/about", methods=["GET", "POST"])
+def index():
+    return render_template(
+        "about.html", pageTitle="About", friends=friends_dict
+    )
 
 
 if __name__ == "__main__":
