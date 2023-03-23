@@ -13,6 +13,11 @@ def index():
         "index.html", pageTitle="Web form template", friends=friends_dict
     )
 
+@app.route("/about", methods=["POST"])
+def index():
+    return render_template(
+        "about.html", pageTitle="About", friends=friends_dict
+    )
 
 @app.route("/add", methods=["POST"])
 def add():
@@ -49,13 +54,5 @@ def add():
     else:
         return redirect(url_for("index"))
     
-
-@app.route("/about", methods=["GET", "POST"])
-def index():
-    return render_template(
-        "about.html", pageTitle="About", friends=friends_dict
-    )
-
-
 if __name__ == "__main__":
     app.run(debug=True)
